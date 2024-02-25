@@ -36,8 +36,10 @@ public class User
     private String password;
 
 
-
     
+    public User()
+    {}
+
     public User(Long idUser,
                 @NotNull @NotEmpty @Size(min = 3, max = 15)String username,
                 @NotNull @NotEmpty @Size(min = 5, max = 10) String password)
@@ -46,9 +48,6 @@ public class User
         this.username = username;
         this.password = password;
     }
-
-    public User()
-    {}
 
 
     // Getters and Setters
