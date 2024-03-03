@@ -1,8 +1,8 @@
 package com.pablobarcellos.software_bancario.models;
 
+
 import java.util.ArrayList;
 import java.util.List;
-
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
@@ -19,13 +19,13 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 @Entity
-@Table(name = "User")
+@Table(name = "user")
 public class User
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idUser", unique = true)
-    private Integer idUser;
+    private Long idUser;
 
     @Column(name = "userName", nullable = false, unique = true)
     @NotNull
@@ -40,16 +40,15 @@ public class User
     @Size(min = 5, max = 10)
     private String password;
 
-
+    
     @OneToMany(mappedBy = "user")
     private List<Conta> contas = new ArrayList<>();
-
-
     
     public User()
     {}
 
-    public User(Integer idUser,
+
+    public User(Long idUser,
                 @NotNull @NotEmpty @Size(min = 3, max = 15)String username,
                 @NotNull @NotEmpty @Size(min = 5, max = 10) String password)
     {
@@ -60,11 +59,11 @@ public class User
 
 
     // Getters and Setters
-    public Integer getIdUser() {
+    public Long getIdUser() {
         return idUser;
     }
 
-    public void setIdUser(Integer idUser) {
+    public void setIdUser(Long idUser) {
         this.idUser = idUser;
     }
 
