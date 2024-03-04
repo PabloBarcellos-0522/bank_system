@@ -84,6 +84,15 @@ public class User
         this.password = password;
     }
 
+    
+    public List<Conta> getContas() {
+        return contas;
+    }
+
+    public void setContas(List<Conta> contas) {
+        this.contas = contas;
+    }
+
 
     // HashCode and Equals
     @Override
